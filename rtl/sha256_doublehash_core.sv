@@ -30,7 +30,7 @@ module sha256_doublehash_core (
 
   logic [  31:0] hash         [ 0:7];  /* hash values */
   logic [  31:0] k            [0:63];  /* round constants k */
-  initial $readmemh("sha256_k.hex", k);
+  initial $readmemh("rom/sha256_k.hex", k);
 
   logic [31:0] w[63:0];  /* message schedule array */
   logic [31:0] s0, s1, S0, S1, ch, maj, temp1, temp2;
@@ -40,7 +40,7 @@ module sha256_doublehash_core (
   always_ff @(posedge clk) begin
     if (reset) begin
       /* initialize hash values */
-      $readmemh("sha256_h0.hex", hash);
+      $readmemh("rom/sha256_h0.hex", hash);
       chunk <= 0;
       step  <= 0;
       /* reset message schedule array */
@@ -138,7 +138,7 @@ module sha256_doublehash_core (
           end else if (!step) begin
             first_hash <= {hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]};
             step <= 1;  /* move to second step */
-            $readmemh("sha256_h0.hex", hash);
+            $readmemh("rom/sha256_h0.hex", hash);
           end
           state <= step ? DONE : INITIAL;
         end
