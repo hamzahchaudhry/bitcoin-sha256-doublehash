@@ -9,7 +9,7 @@ module sha256_compress (
 );
 
   /* constants */
-  localparam logic [31:0] K[64] = {
+  localparam logic [31:0] K[0:63] = '{
     32'h428a2f98,
     32'h71374491,
     32'hb5c0fbcf,
