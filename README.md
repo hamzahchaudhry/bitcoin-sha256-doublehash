@@ -7,9 +7,9 @@ This repo contains a SystemVerilog SHA-256 compression core plus a small top-lev
 The current contents are focused on the compression core, a double-hash wrapper, and simulation:
 
 - `rtl/sha256_compress.sv` implements the SHA-256 compression function.
-- `rtl/top_level.sv` feeds an 80-byte header through two SHA-256 blocks, then hashes the 32-byte result again (double SHA-256).
+- `rtl/sha256_doublehash_core.sv` feeds an 80-byte header through two SHA-256 blocks, then hashes the 32-byte result again (double SHA-256).
 - `tb/sha256_compress_tb.sv` is a basic testbench with a known test vector.
-- `tb/top_level_tb.sv` is a simple top-level integration testbench.
+- `tb/sha256_doublehash_core_tb.sv` is a simple top-level integration testbench.
 
 ## Simulation
 
@@ -21,7 +21,7 @@ To pick a specific testbench:
 
 ```bash
 make sim SIM_TOP=sha256_compress_tb
-make sim SIM_TOP=top_level_tb
+make sim SIM_TOP=sha256_doublehash_core_tb
 ```
 
 ## Current Status and Future Work

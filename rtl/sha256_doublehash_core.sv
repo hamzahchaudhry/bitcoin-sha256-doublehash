@@ -1,4 +1,4 @@
-module top_level (
+module sha256_doublehash_core (
     input logic clk,
     input logic reset,
     input logic start,

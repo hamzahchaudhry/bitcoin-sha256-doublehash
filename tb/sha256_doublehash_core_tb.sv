@@ -1,4 +1,4 @@
-module top_level_tb ();
+module sha256_doublehash_core_tb ();
 
   logic clk = 0;
   logic reset = 1;
@@ -9,7 +9,7 @@ module top_level_tb ();
 
   logic [255:0] expected_digest;
 
-  top_level DUT (
+  sha256_doublehash_core DUT (
       .clk(clk),
       .reset(reset),
       .start(start),
