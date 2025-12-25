@@ -1,7 +1,10 @@
-.PHONY: sim new core clean
+.PHONY: sim clean
 
-SIM_TOP ?= sha256_doublehash_core_tb
-SV_SOURCES = rtl/sha256_doublehash_core.sv rtl/sha256_compress.sv tb/sha256_doublehash_core_tb.sv tb/sha256_compress_tb.sv
+SIM_TOP ?= miner_top_tb
+SV_SOURCES = rtl/sha256_compress.sv \
+	rtl/miner_top.sv \
+	tb/sha256_compress_tb.sv \
+	tb/miner_top_tb.sv
 
 sim:
 	vlib work
